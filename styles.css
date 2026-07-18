@@ -234,13 +234,6 @@ ul {
 .card-title { font-size: 1.35rem; font-weight: 700; color: var(--navy-deep); margin-bottom: 0.75rem; }
 .card-text { color: var(--text-main); font-size: 0.975rem; }
 
-/* WHY GRID */
-.why-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-@media (min-width: 768px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
-.why-item { text-align: center; background-color: var(--bg-gray); padding: 2.5rem 2rem; border-radius: 0.75rem; border: 1px solid var(--border-color); }
-.why-item h4 { font-size: 1.25rem; color: var(--navy-deep); margin-bottom: 0.75rem; font-weight: 700; }
-.why-item p { font-size: 0.95rem; color: var(--text-main); }
-
 /* JOBS GRID */
 .jobs-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 @media (min-width: 768px) { .jobs-grid { grid-template-columns: repeat(3, 1fr); } }
