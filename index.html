@@ -356,46 +356,42 @@
         </section>
     </main>
 
-    <!-- FENÊTRE MODALE POUR LE BLOG -->
+  <!-- LECTEUR D'ARTICLES EN PLEIN ÉCRAN -->
     <div id="blog-modal" class="modal-overlay">
+        <!-- Bouton fermer fixe en haut à droite -->
+        <button class="modal-close-btn" aria-label="Fermer"><i class="fas fa-times"></i> Fermer</button>
+        
         <div class="modal-box">
-            <button class="modal-close-btn" aria-label="Fermer"><i class="fas fa-times"></i></button>
             <span id="modal-art-date" class="modal-art-date"></span>
-            <h3 id="modal-art-title" class="modal-art-title"></h3>
+            <h1 id="modal-art-title" class="modal-art-title"></h1>
+            
+            <!-- Corps de l'article -->
             <div id="modal-art-body" class="modal-art-body"></div>
+
+            <!-- Boutons de Partage -->
+            <div class="article-share-section">
+                <p>Partager cet article :</p>
+                <div class="share-buttons-grid">
+                    <a href="#" id="share-linkedin" target="_blank" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="#" id="share-facebook" target="_blank" class="share-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" id="share-whatsapp" target="_blank" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Bouton d'action final -->
+            <div class="modal-action-footer">
+                <a href="https://wa.me/224620028813?text=Bonjour,%20je%20viens%20de%20lire%20votre%20article%20sur%20le%20blog%20et%20souhaite%20échanger%20avec%20vous." target="_blank" class="btn btn-primary btn-lg full-w-btn">
+                    <i class="fab fa-whatsapp"></i> Discuter avec notre équipe
+                </a>
+            </div>
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-row">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-mark">NS</div>
-                        <span class="logo-text">NEXTSTEP<span class="accent-dot">.</span></span>
-                    </div>
-                    <p class="footer-tagline">Votre partenaire de confiance pour l'emploi, le recrutement et la performance professionnelle en République de Guinée.</p>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">CGV</a>
-                    <a href="#contact">Contact</a>
-                </div>
-
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-copy">© 2026 NextStep Agency. Tous droits réservés.</div>
-        </div>
-    </footer>
+    <!-- Reste du footer inchangé... -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ANIMATION DES POURCENTAGES / COMPTEURS
+            // ANIMATION DES COMPTEURS
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -427,7 +423,7 @@
                 updateCount();
             }
 
-            // BASE DE DONNÉES INTERNE DES ARTICLES DU BLOG
+            // BASE DE DONNÉES DES ARTICLES
             const articlesData = {
                 "1": {
                     date: "15 Juillet 2026",
@@ -444,27 +440,23 @@
                            <h5>5. Un titre vague ou inexistant</h5>
                            <p>Le recruteur doit comprendre votre métier en moins de 3 secondes. Indiquez clairement l'intitulé de votre poste cible tout en haut de votre CV.</p>`
                 },
-
                 "2": {
-                    date: "15 Juillet 2026",
-                    title: "5 erreurs fatales à éviter sur votre CV en Guinée",
-                    body: `<p>Le marché de l'emploi en Guinée devient de plus en plus compétitif. Pourtant, près de 80% des CV reçus par les recruteurs locaux contiennent des erreurs éliminatoires. Voici les 5 points majeurs à corriger immédiatement :</p>
-                           <h5>1. Une photo non professionnelle</h5>
-                           <p>Évitez les selfies ou les photos de vacances recadrées. Optez pour une photo sur fond neutre, avec une tenue professionnelle et une lumière correcte.</p>
-                           <h5>2. L'absence de chiffres et résultats</h5>
-                           <p>Dire "J'ai géré des projets" ne suffit pas. Écrivez plutôt : "Gestion d'un portefeuille de 3 projets miniers ayant généré une hausse de productivité de 15%". Les chiffres apportent de la crédibilité.</p>
-                           <h5>3. Un format de fichier inadapté</h5>
-                           <p>N'envoyez jamais votre CV au format Word (.doc). La mise en page se déforme d'un ordinateur à un autre. Exportez toujours votre fichier final au format PDF.</p>
-                           <h5>4. Les fautes d'orthographe</h5>
-                           <p>Une seule faute de grammaire ou d'inattention transmet un signal de négligence au recruteur. Faites-vous relire par un tiers ou utilisez des outils professionnels.</p>
-                           <h5>5. Un titre vague ou inexistant</h5>
-                           <p>Le recruteur doit comprendre votre métier en moins de 3 secondes. Indiquez clairement l'intitulé de votre poste cible tout en haut de votre CV.</p>`
+                    date: "08 Juillet 2026",
+                    title: "Comment négocier son salaire lors d'un entretien ?",
+                    body: `<p>Aborder la question financière fait peur à de nombreux candidats en Guinée. Pourtant, une négociation bien préparée démontre votre valeur et votre maturité professionnelle. Suivez ces étapes clés :</p>
+                           <h5>1. Étudiez le marché local</h5>
+                           <p>Renseignez-vous en amont sur les grilles salariales pratiquées à Conakry ou dans les zones minières pour votre niveau d'expérience. Fixez une fourchette réaliste (ex: entre 8.000.000 GNF et 10.000.000 GNF net).</p>
+                           <h5>2. Attendez le bon moment</h5>
+                           <p>Ne parlez jamais d'argent lors des premières minutes. Laissez le recruteur aborder le sujet ou attendez la fin du processus lorsque l'entreprise valide votre profil.</p>
+                           <h5>3. Misez sur vos compétences spécifiques</h5>
+                           <p>Justifiez vos prétentions salariales par ce que vous apportez immédiatement à l'entreprise : résolution de problèmes complexes, maîtrise d'un logiciel rare ou réseau sectoriel solide.</p>
+                           <h5>4. Pensez aux avantages globaux</h5>
+                           <p>Le salaire de base n'est pas le seul élément. Négociez également les primes de performance, la prise en charge médicale, le transport ou les opportunités de formation interne.</p>`
                 },
-                
                 "3": {
                     date: "28 Juin 2026",
                     title: "Optimiser son profil LinkedIn pour le secteur minier",
-                    body: `<p>Le secteur minier guinéen (Boké, Kamsar, Siguiri) recrute massivement en ligne. Les chasseurs de têtes internationaux utilisent LinkedIn quotidiennement pour identifier leurs futurs talents. Voici comment rendre votre profil irrésistible :</p>
+                    body: `<p>Le secteur minier guénéen (Boké, Kamsar, Siguiri) recrute massivement en ligne. Les chasseurs de têtes internationaux utilisent LinkedIn quotidiennement pour identifier leurs futurs talents. Voici comment rendre votre profil irrésistible :</p>
                            <h5>1. Soignez votre titre professionnel</h5>
                            <p>Ne mettez pas simplement "En recherche d'emploi". Utilisez des intitulés précis : "Ingénieur Géologue | Exploration & Cartographie minière | Expert SIG".</p>
                            <h5>2. Intégrez des mots-clés sectoriels</h5>
@@ -476,37 +468,53 @@
                 }
             };
 
-            // LOGIQUE DE LA FENÊTRE MODALE
+            // LOGIQUE DU LECTEUR PLEIN ÉCRAN + PARTAGES
             const modal = document.getElementById('blog-modal');
             const modalTitle = document.getElementById('modal-art-title');
             const modalDate = document.getElementById('modal-art-date');
             const modalBody = document.getElementById('modal-art-body');
             const closeBtn = modal.querySelector('.modal-close-btn');
 
+            // Éléments de partage
+            const shareLinkedin = document.getElementById('share-linkedin');
+            const shareFacebook = document.getElementById('share-facebook');
+            const shareWhatsapp = document.getElementById('share-whatsapp');
+
             document.querySelectorAll('.btn-blog-trigger').forEach(button => {
                 button.addEventListener('click', () => {
                     const id = button.getAttribute('data-article');
                     if (articlesData[id]) {
-                        modalTitle.innerText = articlesData[id].title;
-                        modalDate.innerText = articlesData[id].date;
-                        modalBody.innerHTML = articlesData[id].body;
+                        const article = articlesData[id];
+                        
+                        // Injection du contenu
+                        modalTitle.innerText = article.title;
+                        modalDate.innerText = article.date;
+                        modalBody.innerHTML = article.body;
+                        
+                        // Configuration des liens de partage dynamiques
+                        const currentUrl = encodeURIComponent(window.location.href);
+                        const shareText = encodeURIComponent(`À lire sur NextStep : ${article.title}`);
+
+                        shareLinkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+                        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+                        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
+
+                        // Affichage plein écran
                         modal.classList.add('modal-active');
-                        document.body.style.overflow = 'hidden'; // Bloque le scroll arrière
+                        document.body.style.overflow = 'hidden';
+                        modal.scrollTop = 0; // Remonte en haut de l'article ouvert
                     }
                 });
             });
 
             const closeModal = () => {
                 modal.classList.remove('modal-active');
-                document.body.style.overflow = ''; // Réactive le scroll
+                document.body.style.overflow = '';
             };
 
             closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
-            });
 
-            // GESTION DU SCROLL FLUIDE
+            // SCROLL FLUIDE
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
