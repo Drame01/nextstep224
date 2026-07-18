@@ -136,7 +136,7 @@
         <section id="pourquoi-nous" class="section section-light">
             <div class="container">
                 <div class="section-head section-head-center">
-                    <h2 class="section-title">Pourquoi confier votre avenir à NextStep ?</h2>
+                    <h2 class="section-title">Pourquoi choisir NextStep ?</h2>
                     <p class="section-subtitle">Des résultats concrets basés sur une maîtrise parfaite des pratiques RH locales.</p>
                     <div class="title-bar"></div>
                 </div>
@@ -279,7 +279,7 @@
             </div>
         </section>
 
-        <!-- SECTION: BLOG / ACTUALITÉS -->
+        <!-- SECTION: BLOG -->
         <section id="blog" class="section section-light">
             <div class="container">
                 <div class="section-head">
@@ -294,8 +294,8 @@
                         <div class="blog-content">
                             <span class="blog-date">15 Juillet 2026</span>
                             <h4 class="blog-title">5 erreurs fatales à éviter sur votre CV en Guinée</h4>
-                            <p class="blog-excerpt">Découvrez les détails et tournures maladroites qui font rejeter les candidatures par les recruteurs locaux...</p>
-                            <a href="#" class="blog-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                            <p class="blog-excerpt">Découvrez les détails et tournures maladroites qui font systématiquement rejeter les candidatures par les recruteurs locaux...</p>
+                            <button class="btn-blog-trigger" data-article="1">Lire l'article <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </article>
 
@@ -304,8 +304,8 @@
                         <div class="blog-content">
                             <span class="blog-date">08 Juillet 2026</span>
                             <h4 class="blog-title">Comment négocier son salaire lors d'un entretien ?</h4>
-                            <p class="blog-excerpt">Conseils pratiques pour aborder la question de la rémunération avec assurance sans braquer les DRH...</p>
-                            <a href="#" class="blog-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                            <p class="blog-excerpt">Conseils pratiques et arguments clés pour aborder la question de la rémunération avec assurance sans braquer les DRH...</p>
+                            <button class="btn-blog-trigger" data-article="2">Lire l'article <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </article>
 
@@ -314,8 +314,8 @@
                         <div class="blog-content">
                             <span class="blog-date">28 Juin 2026</span>
                             <h4 class="blog-title">Optimiser son profil LinkedIn pour le secteur minier</h4>
-                            <p class="blog-excerpt">Les mots-clés et sections indispensables pour vous faire repérer par les grandes compagnies minières à Boké...</p>
-                            <a href="#" class="blog-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                            <p class="blog-excerpt">Les mots-clés stratégiques et sections indispensables pour vous faire repérer par les grandes compagnies minières à Boké et Kamsar...</p>
+                            <button class="btn-blog-trigger" data-article="3">Lire l'article <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </article>
                 </div>
@@ -324,7 +324,7 @@
 
         <!-- SECTION: FAQ -->
         <section id="faq" class="section section-gray">
-            <div class="container faq-container">
+            <div class="container faq-max">
                 <div class="section-head section-head-center">
                     <h2 class="section-title">Foire Aux Questions</h2>
                     <p class="section-subtitle">Tout ce que vous devez savoir sur nos services d'accompagnement.</p>
@@ -356,7 +356,7 @@
                     <details class="faq-item">
                         <summary class="faq-question">Quels sont les modes de paiement acceptés ?</summary>
                         <div class="faq-answer">
-                            <p>Nous acceptons les paiements via Orange Money, Mobile Money (Momo) ainsi que les règlements en espèces au cabinet.</p>
+                            <p>Nous acceptons les paiements via Orange Money, Mobile Money (Momo) ainsi que les règlements en espèces directement au cabinet.</p>
                         </div>
                     </details>
                 </div>
@@ -390,7 +390,6 @@
 
                 <div class="contact-form-box">
                     <form action="https://formspree.io/f/xoqooqww" method="POST" class="contact-form">
-                        <!-- Remplacer l'URL ci-dessus par une clé Formspree gratuite ou utiliser action="mailto:droum09@gmail.com" -->
                         <div class="form-group">
                             <label for="name">Nom Complet</label>
                             <input type="text" id="name" name="name" placeholder="Votre nom" required>
@@ -409,6 +408,16 @@
             </div>
         </section>
     </main>
+
+    <!-- FENÊTRE MODALE POUR LE BLOG -->
+    <div id="blog-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close-btn" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            <span id="modal-art-date" class="modal-art-date"></span>
+            <h3 id="modal-art-title" class="modal-art-title"></h3>
+            <div id="modal-art-body" class="modal-art-body"></div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <div class="container">
@@ -439,6 +448,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // ANIMATION DES POURCENTAGES / COMPTEURS
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -470,6 +480,82 @@
                 updateCount();
             }
 
+            // BASE DE DONNÉES INTERNE DES ARTICLES DU BLOG
+            const articlesData = {
+                "1": {
+                    date: "15 Juillet 2026",
+                    title: "5 erreurs fatales à éviter sur votre CV en Guinée",
+                    body: `<p>Le marché de l'emploi en Guinée devient de plus en plus compétitif. Pourtant, près de 80% des CV reçus par les recruteurs locaux contiennent des erreurs éliminatoires. Voici les 5 points majeurs à corriger immédiatement :</p>
+                           <h5>1. Une photo non professionnelle</h5>
+                           <p>Évitez les selfies ou les photos de vacances recadrées. Optez pour une photo sur fond neutre, avec une tenue professionnelle et une lumière correcte.</p>
+                           <h5>2. L'absence de chiffres et résultats</h5>
+                           <p>Dire "J'ai géré des projets" ne suffit pas. Écrivez plutôt : "Gestion d'un portefeuille de 3 projets miniers ayant généré une hausse de productivité de 15%". Les chiffres apportent de la crédibilité.</p>
+                           <h5>3. Un format de fichier inadapté</h5>
+                           <p>N'envoyez jamais votre CV au format Word (.doc). La mise en page se déforme d'un ordinateur à un autre. Exportez toujours votre fichier final au format PDF.</p>
+                           <h5>4. Les fautes d'orthographe</h5>
+                           <p>Une seule faute de grammaire ou d'inattention transmet un signal de négligence au recruteur. Faites-vous relire par un tiers ou utilisez des outils professionnels.</p>
+                           <h5>5. Un titre vague ou inexistant</h5>
+                           <p>Le recruteur doit comprendre votre métier en moins de 3 secondes. Indiquez clairement l'intitulé de votre poste cible tout en haut de votre CV.</p>`
+                },
+                "2": {
+                    date: "08 Juillet 2026",
+                    title: "Comment négocier son salaire lors d'un entretien ?",
+                    body: `<p>Aborder la question financière fait peur à de nombreux candidats en Guinée. Pourtant, une négociation bien préparée démontre votre valeur et votre maturité professionnelle. Suivez ces étapes clés :</p>
+                           <h5>1. Étudiez le marché local</h5>
+                           <p>Renseignez-vous en amont sur les grilles salariales pratiquées à Conakry ou dans les zones minières pour votre niveau d'expérience. Fixez une fourchette réaliste (ex: entre 8.000.000 GNF et 10.000.000 GNF net).</p>
+                           <h5>2. Attendez le bon moment</h5>
+                           <p>Ne parlez jamais d'argent lors des premières minutes. Laissez le recruteur aborder le sujet ou attendez la fin du processus lorsque l'entreprise valide votre profil.</p>
+                           <h5>3. Misez sur vos compétences spécifiques</h5>
+                           <p>Justifiez vos prétentions salariales par ce que vous apportez immédiatement à l'entreprise : résolution de problèmes complexes, maîtrise d'un logiciel rare ou réseau sectoriel solide.</p>
+                           <h5>4. Pensez aux avantages globaux</h5>
+                           <p>Le salaire de base n'est pas le seul élément. Négociez également les primes de performance, la prise en charge médicale, le transport ou les opportunités de formation interne.</p>`
+                },
+                "3": {
+                    date: "28 Juin 2026",
+                    title: "Optimiser son profil LinkedIn pour le secteur minier",
+                    body: `<p>Le secteur minier guinéen (Boké, Kamsar, Siguiri) recrute massivement en ligne. Les chasseurs de têtes internationaux utilisent LinkedIn quotidiennement pour identifier leurs futurs talents. Voici comment rendre votre profil irrésistible :</p>
+                           <h5>1. Soignez votre titre professionnel</h5>
+                           <p>Ne mettez pas simplement "En recherche d'emploi". Utilisez des intitulés précis : "Ingénieur Géologue | Exploration & Cartographie minière | Expert SIG".</p>
+                           <h5>2. Intégrez des mots-clés sectoriels</h5>
+                           <p>Les recruteurs effectuent des recherches par filtres. Répétez judicieusement des termes stratégiques comme HSE, Bauxite, RSE, Management d'équipe ou Logistique minière dans vos descriptions de postes.</p>
+                           <h5>3. Rédigez un résumé percutant</h5>
+                           <p>La section "Info" doit résumer votre valeur ajoutée en 4 ou 5 lignes droites. Expliquez clairement vos domaines d'expertise et mentionnez vos certifications majeures.</p>
+                           <h5>4. Développez votre réseau activement</h5>
+                           <p>Connectez-vous avec les responsables RH, les directeurs techniques et les experts du secteur opérant en Guinée et en Afrique de l'Ouest.</p>`
+                }
+            };
+
+            // LOGIQUE DE LA FENÊTRE MODALE
+            const modal = document.getElementById('blog-modal');
+            const modalTitle = document.getElementById('modal-art-title');
+            const modalDate = document.getElementById('modal-art-date');
+            const modalBody = document.getElementById('modal-art-body');
+            const closeBtn = modal.querySelector('.modal-close-btn');
+
+            document.querySelectorAll('.btn-blog-trigger').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-article');
+                    if (articlesData[id]) {
+                        modalTitle.innerText = articlesData[id].title;
+                        modalDate.innerText = articlesData[id].date;
+                        modalBody.innerHTML = articlesData[id].body;
+                        modal.classList.add('modal-active');
+                        document.body.style.overflow = 'hidden'; // Bloque le scroll arrière
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('modal-active');
+                document.body.style.overflow = ''; // Réactive le scroll
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // GESTION DU SCROLL FLUIDE
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
