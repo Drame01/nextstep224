@@ -493,25 +493,46 @@
             const shareFacebook = document.getElementById('share-facebook');
             const shareWhatsapp = document.getElementById('share-whatsapp');
 
-            document.querySelectorAll('.btn-blog-trigger').forEach(button => {
-                button.addEventListener('click', () => {
-                    const id = button.getAttribute('data-article');
-                    if (articlesData[id]) {
-                        const article = articlesData[id];
-                        modalTitle.innerText = article.title;
-                        modalDate.innerText = article.date;
-                        modalBody.innerHTML = article.body;
-                        
-                        const currentUrl = encodeURIComponent(window.location.href);
-                        const shareText = encodeURIComponent(`À lire sur NextStep : ${article.title}`);
+            Pour que chaque article génère son propre lien unique et automatique lors du partage (en ajoutant `?article=ID` au bout de l'adresse de votre site), remplacez la partie correspondante dans votre bloc de code JavaScript actuel par celle-ci :
 
-                        shareLinkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
-                        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-                        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
+```javascript
+document.querySelectorAll('.btn-blog-trigger').forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-article');
+        if (articlesData[id]) {
+            const article = articlesData[id];
+            modalTitle.innerText = article.title;
+            modalDate.innerText = article.date;
+            modalBody.innerHTML = article.body;
+            
+            // Génération d'un lien unique automatique par article
+            const articleUrl = window.location.origin + window.location.pathname + '?article=' + id;
+            const encodedArticleUrl = encodeURIComponent(articleUrl);
+            const shareText = encodeURIComponent(`🔥 À lire sur Amploi : ${article.title}`);
 
-                        modal.classList.add('modal-active');
-                        document.body.style.overflow = 'hidden';
-                        modal.scrollTop = 0;
+            // Mise à jour des boutons de partage avec le lien de l'article
+            shareLinkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedArticleUrl}`;
+            shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedArticleUrl}`;
+            shareWhatsapp.href = `https://api.whatsapp.com/send?text=${shareText}%20${encodedArticleUrl}`;
+
+            modal.classList.add('modal-active');
+            document.body.style.overflow = 'hidden';
+            modal.scrollTop = 0;
+        }
+    });
+});
+
+// BONUS : Ce script détecte si un visiteur arrive via un lien d'article partagé et lui ouvre directement la modale
+const urlParams = new URLSearchParams(window.location.search);
+const sharedArticleId = urlParams.get('article');
+if (sharedArticleId && articlesData[sharedArticleId]) {
+    setTimeout(() => {
+        const targetBtn = document.querySelector(`.btn-blog-trigger[data-article="${sharedArticleId}"]`);
+        if (targetBtn) targetBtn.click();
+    }, 500); // Léger délai pour s'assurer que la page est bien chargée
+}
+
+```
                     }
                 });
             });
