@@ -493,9 +493,6 @@
             const shareFacebook = document.getElementById('share-facebook');
             const shareWhatsapp = document.getElementById('share-whatsapp');
 
-            Pour que chaque article génère son propre lien unique et automatique lors du partage (en ajoutant `?article=ID` au bout de l'adresse de votre site), remplacez la partie correspondante dans votre bloc de code JavaScript actuel par celle-ci :
-
-```javascript
 document.querySelectorAll('.btn-blog-trigger').forEach(button => {
     button.addEventListener('click', () => {
         const id = button.getAttribute('data-article');
