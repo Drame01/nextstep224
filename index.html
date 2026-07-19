@@ -505,9 +505,9 @@
                         const currentUrl = encodeURIComponent(window.location.href);
                         const shareText = encodeURIComponent(`À lire sur NextStep : ${article.title}`);
 
-                        shareLinkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedArticleUrl}`;
-            shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedArticleUrl}`;
-            shareWhatsapp.href = `https://api.whatsapp.com/send?text=${shareText}%20${encodedArticleUrl}`;
+                 const shareLinkedin = document.getElementById('share-linkedin');
+            const shareFacebook = document.getElementById('share-facebook');
+            const shareWhatsapp = document.getElementById('share-whatsapp');
 
                         modal.classList.add('modal-active');
                         document.body.style.overflow = 'hidden';
