@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nextstep224.vercel.app/</loc><lastmod>2026-10-04</lastmod><priority>1.0</priority></url>
-  <url><loc>https://nextstep224.vercel.app/blog.html</loc><lastmod>2026-09-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/cv-sans-experience.html</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/travailler-ong-guinee.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/trouver-un-stage-conakry.html</loc><lastmod>2026-09-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/cv-secteur-minier.html</loc><lastmod>2026-09-19</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/erreurs-cv-eliminatoires.html</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/reussir-entretien-visio-telephone.html</loc><lastmod>2026-09-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/candidature-spontanee-relance.html</loc><lastmod>2026-09-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/lettre-de-motivation-structure.html</loc><lastmod>2026-09-02</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/questions-entretien-frequentes.html</loc><lastmod>2026-08-22</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/ce-que-font-les-candidats-retenus.html</loc><lastmod>2026-07-19</lastmod><priority>0.7</priority></url>
