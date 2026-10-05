@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://nextstep224.vercel.app/</loc><lastmod>2026-10-04</lastmod><priority>1.0</priority></url>
-  <url><loc>https://nextstep224.vercel.app/blog.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nextstep224.vercel.app/</loc><lastmod>2026-10-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog.html</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/guide-complet-cv-guinee.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/lettre-motivation-premier-emploi-exemples.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/preparer-entretien-checklist.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/apres-entretien-remerciement-relance.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/profil-linkedin-complet.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/arnaques-offres-emploi.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/soft-skills-recruteurs.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/plan-recherche-emploi-30-jours.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/reussir-periode-essai.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nextstep224.vercel.app/blog/reconversion-professionnelle.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/cv-sans-experience.html</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/travailler-ong-guinee.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
   <url><loc>https://nextstep224.vercel.app/blog/trouver-un-stage-conakry.html</loc><lastmod>2026-09-24</lastmod><priority>0.7</priority></url>
