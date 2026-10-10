@@ -482,27 +482,14 @@ STEPS = [
 # Avis clients : uniquement de VRAIS avis, avec l'accord du client.
 # Format : dict(nom="Mariama D.", poste="Assistante RH", ville="Conakry", pack="Pro", note=5,
 #               texte="Ce que le client a écrit, sans le réécrire.")
-# Tant que la liste est vide, la section affiche seulement l'invitation à laisser un avis.
+# Tant que la liste est vide, la section n'apparaît pas sur le site.
 AVIS = [
 ]
 
 def avis_html():
-    lien = wa("Bonjour Amploi, je souhaite laisser un avis sur votre accompagnement : ")
-    btn = f'<a href="{lien}" class="btn btn-primary" target="_blank" rel="noopener">{ic("chat")} Laisser un avis</a>'
+    # Section masquée tant qu'aucun avis réel n'a été ajouté.
     if not AVIS:
-        return f"""
-        <!-- AVIS -->
-        <section id="avis" class="section">
-            <div class="container">
-                <div class="avis-invite reveal">
-                    <div class="avis-stars" aria-hidden="true">{"".join(ic("star") for _ in range(5))}</div>
-                    <h2>Vous avez été accompagné par Amploi&nbsp;?</h2>
-                    <p>Votre avis aide d'autres candidats à se lancer. Racontez-nous en quelques mots comment s'est passé votre accompagnement.</p>
-                    {btn}
-                </div>
-            </div>
-        </section>
-"""
+        return ""
     cards = ""
     for a in AVIS:
         n = max(1, min(5, int(a.get("note", 5))))
@@ -530,7 +517,6 @@ def avis_html():
                 </div>
                 <div class="grid grid-3">{cards}
                 </div>
-                <div class="center-cta">{btn.replace("btn-primary", "btn-outline")}</div>
             </div>
         </section>
 """
