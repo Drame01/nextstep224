@@ -337,7 +337,7 @@ p { margin: 0 0 1em; }
 .article-cover { border-radius: var(--radius-lg); aspect-ratio: 21 / 9; margin: 8px 0 40px; }
 .article-cover svg { width: 72px; height: 72px; }
 
-.prose { font-size: 18px; line-height: 1.75; color: #1e293b; }
+.prose { font-size: 18px; line-height: 1.75; color: #1e293b; overflow-wrap: break-word; }
 .prose p { margin-bottom: 1.3em; }
 .prose h2 { font-size: 26px; margin: 1.8em 0 .6em; }
 .prose h3 { font-size: 21px; margin: 1.5em 0 .5em; }
