@@ -30,7 +30,7 @@ avec l'accord du client, sans réécrire le texte. Ne jamais inventer d'avis. Li
 2. Choisir un sujet utile aux chercheurs d'emploi en Guinée, qui n'est pas déjà traité.
 3. Ajouter un `dict(...)` **à la fin** de la liste `HEBDO` dans `generateur/articles_hebdo.py`, au même format que les articles existants :
    - `slug` en minuscules avec tirets ; `cat` parmi : CV, Lettre de motivation, Entretien, LinkedIn, Conseils, Carrière
-   - `icon` et `cover` : champs conservés pour compatibilité mais plus affichés depuis la refonte ; `icon` parmi : file mail linkedin chat check arrow shield clock users briefcase target star pin search pen mic coins facebook link doc-search alert calendar grid refresh
+   - `icon` parmi : file mail linkedin chat check arrow shield clock users briefcase target star pin search pen mic coins facebook link doc-search alert calendar grid refresh
    - `cover` de `c1` à `c6` (alterner) ; `date` en toutes lettres (« 17 octobre 2026 ») et `iso` (« 2026-10-17 ») = date du jour
    - `body` en HTML : `<p>`, `<h2>`, `<h3>`, `<ul>`, `<blockquote>`, `<div class="compare"><div class="bad"><b>À éviter</b>…</div><div class="good"><b>À préférer</b>…</div></div>`
 4. Règles de rédaction : 900 à 1 500 mots, au moins 5 sections `<h2>` (un sommaire est alors généré), ton concret et bienveillant,
