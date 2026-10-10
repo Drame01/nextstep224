@@ -300,7 +300,7 @@ def head(title, desc, root, path="", og_type="website", jsonld=None):
     <title>{title}</title>
     <meta name="description" content="{desc}">
     <link rel="canonical" href="{url}">
-    <meta name="theme-color" content="#1d3fbf">
+    <meta name="theme-color" content="#1a56db">
     <meta property="og:type" content="{og_type}">
     <meta property="og:site_name" content="Amploi">
     <meta property="og:url" content="{url}">
@@ -309,10 +309,10 @@ def head(title, desc, root, path="", og_type="website", jsonld=None):
     <meta property="og:image" content="{SITE_URL}/og-image.png">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%231d3fbf'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-weight='700' font-size='38' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231a56db'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{root}styles.css">
 {ld}</head>
 <body>
@@ -337,19 +337,22 @@ def header(root, active=""):
         nav(f"{home}#services", "Services", "services"),
         nav(f"{home}#tarifs", "Tarifs", "tarifs"),
         nav(f"{home}#offres", "Offres d'emploi", "offres"),
-        nav(f"{home}#recruteurs", "Entreprises", "recruteurs"),
-        nav(f"{root}blog.html", "Conseils", "blog"),
+        nav(f"{home}#recruteurs", "Recruteurs", "recruteurs"),
+        nav(f"{root}blog.html", "Blog", "blog"),
         nav(f"{home}#contact", "Contact", "contact"),
     ]
     return f"""
     <header class="site-header">
         <div class="container header-inner">
-            <a href="{home}" class="logo" aria-label="{SITE}, accueil">Amploi<span>.</span></a>
+            <a href="{home}" class="logo" aria-label="{SITE}, accueil">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">Amploi<span>.</span></span>
+            </a>
             <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
                 {"".join(links)}
             </nav>
             <div class="header-cta">
-                <a href="{wa("Bonjour Amploi, je souhaite faire analyser mon CV.")}" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Envoyer mon CV</a>
+                <a href="{wa("Bonjour Amploi, je souhaite faire analyser mon CV.")}" class="btn btn-primary" target="_blank" rel="noopener">Envoyer mon CV</a>
                 <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav"><span></span></button>
             </div>
         </div>
@@ -363,13 +366,13 @@ def footer(root):
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <a href="{home}" class="logo">Amploi<span>.</span></a>
-                    <p>Accompagnement carrière et recrutement à Conakry. CV, lettres de motivation, LinkedIn et préparation aux entretiens.</p>
+                    <a href="{home}" class="logo"><span class="logo-mark">A</span><span class="logo-text">Amploi<span>.</span></span></a>
+                    <p>Accompagnement carrière et recrutement en République de Guinée. CV, lettres de motivation, LinkedIn, coaching d'entretien.</p>
                 </div>
                 <div>
                     <h4>Candidats</h4>
                     <ul>
-                        <li><a href="{home}#services">Services</a></li>
+                        <li><a href="{home}#services">Nos services</a></li>
                         <li><a href="{home}#tarifs">Tarifs</a></li>
                         <li><a href="{home}#offres">Offres d'emploi</a></li>
                         <li><a href="{home}#faq">Questions fréquentes</a></li>
@@ -378,22 +381,22 @@ def footer(root):
                 <div>
                     <h4>Ressources</h4>
                     <ul>
-                        <li><a href="{root}blog.html">Conseils carrière</a></li>
-                        <li><a href="{home}#recruteurs">Entreprises</a></li>
+                        <li><a href="{root}blog.html">Blog carrière</a></li>
+                        <li><a href="{home}#recruteurs">Espace recruteurs</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="https://wa.me/{WA_NUM}" target="_blank" rel="noopener">+224 620 02 88 13</a></li>
+                        <li><a href="https://wa.me/{WA_NUM}" target="_blank" rel="noopener">WhatsApp : +224 620 02 88 13</a></li>
                         <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
                         <li>Conakry, Guinée</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© <span data-year>2026</span> Amploi</span>
-                <span>Conakry, République de Guinée</span>
+                <span>© <span data-year>2026</span> Amploi. Tous droits réservés.</span>
+                <span>Fait en Guinée 🇬🇳</span>
             </div>
         </div>
     </footer>
@@ -407,11 +410,14 @@ def footer(root):
 
 def post_card(p, root, reveal=True):
     return f"""
-                <a href="{root}blog/{p['slug']}.html" class="post-card" data-cat="{p['cat']}">
-                    <span class="post-cat">{p['cat']}</span>
-                    <h3>{p['title']}</h3>
-                    <p>{p['excerpt']}</p>
-                    <span class="post-meta"><time datetime="{p['iso']}">{p['date']}</time> · {p['read']} min</span>
+                <a href="{root}blog/{p['slug']}.html" class="card post-card{' reveal' if reveal else ''}" data-cat="{p['cat']}">
+                    <div class="post-cover {p['cover']}">{ic(p['icon'], 1.6)}<span class="post-cat">{p['cat']}</span></div>
+                    <div class="post-body">
+                        <div class="post-meta"><time datetime="{p['iso']}">{p['date']}</time> · {p['read']} min de lecture</div>
+                        <h3>{p['title']}</h3>
+                        <p>{p['excerpt']}</p>
+                        <span class="read-more">Lire l'article {ic('arrow')}</span>
+                    </div>
                 </a>"""
 
 # ---------- Accueil ----------
@@ -424,11 +430,41 @@ PACKS = [
       items=["Tout le pack Pro", "Optimisation complète du profil LinkedIn", "Séance de coaching et simulation d'entretien", "Conseils personnalisés de négociation salariale", "Suivi prioritaire sur WhatsApp"]),
 ]
 
+def pack_html(p):
+    items = "".join(f"<li>{ic('check', 2.5)}<span>{i}</span></li>" for i in p["items"])
+    badge = '<span class="price-badge">Le plus choisi</span>' if p["featured"] else ""
+    btn = "btn-white" if p["featured"] else "btn-outline"
+    msg = f"Bonjour Amploi, je souhaite commander le pack {p['name']} ({p['price']} GNF)."
+    return f"""
+                <div class="price-card{' featured' if p['featured'] else ''} reveal">
+                    {badge}
+                    <h3>{p['name']}</h3>
+                    <p class="price-for">{p['for_']}</p>
+                    <div class="price">{p['price'].replace(' ', '&nbsp;')} <small>GNF</small></div>
+                    <p class="price-note">Paiement unique · {p['note']}</p>
+                    <ul class="price-list">{items}</ul>
+                    <a href="{wa(msg)}" class="btn {btn} btn-block" target="_blank" rel="noopener">Choisir le pack {p['name']}</a>
+                </div>"""
+
 JOBS = [
  dict(title="Responsable des Ressources Humaines", company="Société minière", tags=["CDI", "Conakry"], date="Publiée récemment"),
  dict(title="Ingénieur Sécurité & Environnement (HSE)", company="Groupe industriel international", tags=["CDI", "Kamsar"], date="Publiée récemment"),
  dict(title="Chef de projet transformation digitale", company="Opérateur de télécommunications", tags=["Consultance", "Conakry"], date="Publiée récemment"),
 ]
+def job_html(j):
+    tags = "".join(f'<span class="tag{" alt" if k else ""}">{t}</span>' for k, t in enumerate(j["tags"]))
+    msg = f"Bonjour Amploi, je suis intéressé(e) par l'offre « {j['title']} »."
+    return f"""
+                <article class="card job-card reveal">
+                    <div class="job-tags">{tags}</div>
+                    <h3>{j['title']}</h3>
+                    <p class="job-company">{j['company']}</p>
+                    <div class="job-foot">
+                        <span>{j['date']}</span>
+                        <a href="{wa(msg)}" target="_blank" rel="noopener">Postuler {ic('arrow')}</a>
+                    </div>
+                </article>"""
+
 SERVICES = [
  ("file", "Rédaction et refonte de CV", "On réécrit votre CV de A à Z : contenu, structure et présentation, pour qu'il retienne l'attention et passe les filtres automatiques."),
  ("pen", "Lettres de motivation", "Une lettre personnalisée pour chaque poste visé, courte et précise, qui donne envie au recruteur de vous rencontrer."),
@@ -462,7 +498,7 @@ def avis_html():
         meta = " · ".join(x for x in (a.get("poste"), a.get("ville")) if x)
         pack = f'<span class="tag">Pack {a["pack"]}</span>' if a.get("pack") else ""
         cards += f"""
-                <figure class="avis-card">
+                <figure class="card avis-card reveal">
                     <div class="avis-note" aria-label="{n} étoiles sur 5">{stars}</div>
                     <blockquote>«&nbsp;{a['texte']}&nbsp;»</blockquote>
                     <figcaption>
@@ -475,8 +511,11 @@ def avis_html():
         <!-- AVIS -->
         <section id="avis" class="section">
             <div class="container">
-                <h2 class="section-title">Ce qu'en disent nos clients</h2>
-                <div class="avis-grid">{cards}
+                <div class="section-head center">
+                    <span class="eyebrow">Avis clients</span>
+                    <h2 class="section-title">Ils ont fait confiance à Amploi</h2>
+                </div>
+                <div class="grid grid-3">{cards}
                 </div>
             </div>
         </section>
@@ -491,41 +530,18 @@ FAQ = [
  ("Je vis à l'étranger ou hors de Conakry. Puis-je faire appel à vous ?", "Oui. Tout se fait à distance, par WhatsApp et par e-mail, y compris le coaching d'entretien en visio."),
 ]
 
-def pack_html(p):
-    items = "".join(f"<li>{i}</li>" for i in p["items"])
-    badge = '<span class="price-badge">Le plus choisi</span>' if p["featured"] else ""
-    btn = "btn-primary" if p["featured"] else "btn-outline"
-    msg = f"Bonjour Amploi, je souhaite commander le pack {p['name']} ({p['price']} GNF)."
-    return f"""
-                <div class="price-card{' featured' if p['featured'] else ''}">
-                    {badge}
-                    <h3>{p['name']}</h3>
-                    <p class="price-for">{p['for_']}</p>
-                    <p class="price">{p['price'].replace(' ', '&nbsp;')}<small>&nbsp;GNF</small></p>
-                    <p class="price-note">Paiement unique · {p['note']}</p>
-                    <ul class="price-list">{items}</ul>
-                    <a href="{wa(msg)}" class="btn {btn} btn-block" target="_blank" rel="noopener">Choisir {p['name']}</a>
-                </div>"""
-
-def job_html(j):
-    msg = f"Bonjour Amploi, je suis intéressé(e) par l'offre « {j['title']} »."
-    contrat, lieu = (j["tags"] + ["", ""])[:2]
-    return f"""
-                    <tr>
-                        <td><strong>{j['title']}</strong><span class="job-company">{j['company']}</span></td>
-                        <td>{lieu}</td>
-                        <td>{contrat}</td>
-                        <td class="job-action"><a href="{wa(msg)}" target="_blank" rel="noopener">Postuler&nbsp;→</a></td>
-                    </tr>"""
-
 def build_index():
     services = "".join(f"""
-                    <li>
-                        <span class="num">{k:02d}</span>
-                        <div><h3>{t}</h3><p>{d}</p></div>
-                    </li>""" for k, (i, t, d) in enumerate(SERVICES, 1))
+                <article class="card reveal">
+                    <div class="icon-box">{ic(i)}</div>
+                    <h3>{t}</h3>
+                    <p>{d}</p>
+                </article>""" for i, t, d in SERVICES)
     steps = "".join(f"""
-                <li><span class="num">{k}</span><h3>{t}</h3><p>{d}</p></li>""" for k, (t, d) in enumerate(STEPS, 1))
+                <div class="step reveal">
+                    <h3>{t}</h3>
+                    <p>{d}</p>
+                </div>""" for t, d in STEPS)
     faq = "".join(f"""
                 <details>
                     <summary>{q}</summary>
@@ -543,55 +559,74 @@ def build_index():
         <!-- HERO -->
         <section class="hero">
             <div class="container hero-grid">
-                <div class="hero-text">
-                    <p class="kicker">Cabinet d'accompagnement carrière · Conakry</p>
-                    <h1>Un CV qui donne envie de vous appeler.</h1>
-                    <p class="hero-lead">Nous réécrivons votre CV, votre lettre et votre profil LinkedIn, puis nous vous préparons à l'entretien. Pour les candidats en Guinée et dans la diaspora.</p>
+                <div>
+                    <span class="hero-badge"><b>Gratuit</b> Diagnostic de votre CV sous 24 h</span>
+                    <h1>Décrochez l'entretien <em>que vous méritez.</em></h1>
+                    <p class="hero-lead">Amploi transforme votre CV, votre lettre et votre profil LinkedIn en outils qui convainquent les recruteurs, en Guinée comme à l'international.</p>
                     <div class="hero-actions">
-                        <a href="#tarifs" class="btn btn-primary btn-lg">Voir les tarifs</a>
-                        <a href="{wa("Bonjour Amploi, je souhaite un diagnostic gratuit de mon CV.")}" class="link-arrow" target="_blank" rel="noopener">Diagnostic gratuit sur WhatsApp →</a>
+                        <a href="#tarifs" class="btn btn-primary btn-lg">Voir les packs {ic('arrow')}</a>
+                        <a href="{wa("Bonjour Amploi, je souhaite un diagnostic gratuit de mon CV.")}" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Diagnostic gratuit</a>
+                    </div>
+                    <div class="hero-proof">
+                        <div><strong data-count="250" data-prefix="+">+250</strong><span>candidats accompagnés</span></div>
+                        <div><strong data-count="25" data-prefix="+">+25</strong><span>entreprises partenaires</span></div>
+                        <div><strong>48 h</strong><span>délai de livraison</span></div>
                     </div>
                 </div>
-                <aside class="hero-box">
-                    <p class="hero-box-title">Diagnostic gratuit de votre CV</p>
-                    <ol>
-                        <li>Envoyez votre CV sur WhatsApp, même en photo.</li>
-                        <li>Dites-nous quel poste vous visez.</li>
-                        <li>Sous 24&nbsp;h, un consultant vous dit ce qui bloque.</li>
-                    </ol>
-                    <a href="{wa("Bonjour Amploi, je vous envoie mon CV pour un diagnostic gratuit.")}" class="btn btn-white btn-block" target="_blank" rel="noopener">Envoyer mon CV</a>
-                    <p class="hero-box-note">Sans engagement.</p>
-                </aside>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="float-chip chip-1"><span class="dot">{ic('doc-search')}</span><div>CV analysé<small>Retour sous 24 h</small></div></div>
+                    <div class="cv-card">
+                        <div class="cv-head">
+                            <div class="cv-avatar"></div>
+                            <div><div class="cv-name">Mariama Diallo</div><div class="cv-role">Responsable logistique</div></div>
+                        </div>
+                        <div class="cv-line w90"></div>
+                        <div class="cv-line w80"></div>
+                        <div class="cv-line w60"></div>
+                        <div class="cv-label">Expérience</div>
+                        <div class="cv-line blue w90"></div>
+                        <div class="cv-line w80"></div>
+                        <div class="cv-line w40"></div>
+                        <div class="cv-label">Compétences</div>
+                        <div class="cv-tags"><span>Supply chain</span><span>HSE</span><span>SAP</span><span>Leadership</span></div>
+                    </div>
+                    <div class="float-chip chip-2"><span class="dot">{ic('check', 2.5)}</span><div>Entretien obtenu<small>Kamsar · CDI</small></div></div>
+                </div>
             </div>
         </section>
 
-        <section class="figures" aria-label="Amploi en chiffres">
-            <div class="container figures-grid">
-                <p><strong>250+</strong> candidats accompagnés</p>
-                <p><strong>25+</strong> entreprises partenaires</p>
-                <p><strong>48&nbsp;h</strong> délai de livraison</p>
-                <p><strong>39&nbsp;000&nbsp;GNF</strong> premier pack</p>
+        <div class="trust">
+            <div class="container trust-inner">
+                <span>{ic('shield')} Diagnostic gratuit et sans engagement</span>
+                <span>{ic('clock')} Livraison en 48 à 72 h</span>
+                <span>{ic('pin')} Conakry et toute la Guinée</span>
+                <span>{ic('chat')} Suivi sur WhatsApp</span>
             </div>
-        </section>
+        </div>
 
         <!-- SERVICES -->
         <section id="services" class="section">
-            <div class="container split">
-                <div class="split-head">
-                    <h2 class="section-title">Ce que nous faisons pour vous</h2>
-                    <p class="section-lead">Jeune diplômé ou cadre confirmé : on reprend votre candidature de bout en bout.</p>
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow">Nos services</span>
+                    <h2 class="section-title">Tout ce qu'il faut pour être recruté</h2>
+                    <p class="section-lead">Jeune diplômé ou cadre expérimenté, nous renforçons chaque étape de votre candidature.</p>
                 </div>
-                <ol class="service-list">{services}
-                </ol>
+                <div class="grid grid-4">{services}
+                </div>
             </div>
         </section>
 
         <!-- ÉTAPES -->
-        <section class="section section-alt">
+        <section class="section section-tint">
             <div class="container">
-                <h2 class="section-title">Comment ça se passe</h2>
-                <ol class="steps">{steps}
-                </ol>
+                <div class="section-head center">
+                    <span class="eyebrow">Comment ça marche</span>
+                    <h2 class="section-title">Simple, rapide, 100 % à distance</h2>
+                </div>
+                <div class="grid grid-4 steps">{steps}
+                </div>
             </div>
         </section>
 
@@ -599,72 +634,74 @@ def build_index():
         <!-- TARIFS -->
         <section id="tarifs" class="section">
             <div class="container">
-                <div class="section-head">
-                    <h2 class="section-title">Tarifs</h2>
-                    <p class="section-lead">Trois formules, un paiement unique, pas de frais cachés.</p>
+                <div class="section-head center">
+                    <span class="eyebrow">Tarifs</span>
+                    <h2 class="section-title">Investissez dans votre carrière</h2>
+                    <p class="section-lead">Trois formules claires, sans frais cachés. Payez une fois, postulez en toute confiance.</p>
                 </div>
-                <div class="pricing">{"".join(pack_html(p) for p in PACKS)}
+                <div class="grid grid-3 pricing">{"".join(pack_html(p) for p in PACKS)}
                 </div>
-                <p class="pricing-foot">Vous hésitez entre deux formules&nbsp;? <a href="{wa("Bonjour Amploi, j'hésite entre vos packs. Pouvez-vous me conseiller ?")}" target="_blank" rel="noopener">Demandez-nous conseil</a>.</p>
+                <p class="pricing-foot">Vous hésitez ? <a href="{wa("Bonjour Amploi, j'hésite entre vos packs. Pouvez-vous me conseiller ?")}" target="_blank" rel="noopener">Demandez-nous conseil sur WhatsApp</a>.</p>
             </div>
         </section>
 
         <!-- OFFRES -->
-        <section id="offres" class="section section-alt">
+        <section id="offres" class="section section-tint">
             <div class="container">
-                <div class="section-head section-head-row">
-                    <div>
-                        <h2 class="section-title">Offres d'emploi</h2>
-                        <p class="section-lead">Postes confiés par nos entreprises partenaires.</p>
-                    </div>
-                    <a href="{wa("Bonjour Amploi, je souhaite recevoir les nouvelles offres d'emploi.")}" class="link-arrow" target="_blank" rel="noopener">Recevoir les offres sur WhatsApp →</a>
+                <div class="section-head">
+                    <span class="eyebrow">Offres d'emploi</span>
+                    <h2 class="section-title">Dernières opportunités en Guinée</h2>
+                    <p class="section-lead">Des postes confiés par nos entreprises partenaires. Postulez directement via Amploi.</p>
                 </div>
-                <table class="jobs">
-                    <thead><tr><th>Poste</th><th>Lieu</th><th>Contrat</th><th><span class="sr-only">Action</span></th></tr></thead>
-                    <tbody>{"".join(job_html(j) for j in JOBS)}
-                    </tbody>
-                </table>
+                <div class="grid grid-3">{"".join(job_html(j) for j in JOBS)}
+                </div>
+                <div class="center-cta">
+                    <a href="{wa("Bonjour Amploi, je souhaite recevoir les nouvelles offres d'emploi.")}" class="btn btn-outline" target="_blank" rel="noopener">Recevoir les offres sur WhatsApp</a>
+                </div>
             </div>
         </section>
 
         <!-- RECRUTEURS -->
-        <section id="recruteurs" class="section section-blue">
-            <div class="container split">
-                <div class="split-head">
-                    <h2 class="section-title">Vous recrutez&nbsp;?</h2>
-                    <p class="section-lead">Nous présélectionnons pour vous des candidats aux dossiers vérifiés, prêts pour l'entretien.</p>
-                    <div class="recruit-actions">
-                        <a href="{wa("Bonjour Amploi, nous souhaitons vous confier un recrutement.")}" class="btn btn-white" target="_blank" rel="noopener">Confier un recrutement</a>
-                        <a href="mailto:{EMAIL}?subject=Demande%20d%27acc%C3%A8s%20%C3%A0%20la%20CVth%C3%A8que" class="link-arrow">Accéder à la CVthèque →</a>
+        <section id="recruteurs" class="section">
+            <div class="container">
+                <div class="recruit reveal">
+                    <div>
+                        <span class="eyebrow">Entreprises</span>
+                        <h2>Vous recrutez en Guinée ?</h2>
+                        <p>Gagnez du temps : nous présélectionnons pour vous des candidats aux dossiers vérifiés, prêts pour l'entretien.</p>
+                        <div class="recruit-actions">
+                            <a href="{wa("Bonjour Amploi, nous souhaitons vous confier un recrutement.")}" class="btn btn-white" target="_blank" rel="noopener">Confier un recrutement</a>
+                            <a href="mailto:{EMAIL}?subject=Demande%20d%27acc%C3%A8s%20%C3%A0%20la%20CVth%C3%A8que" class="btn btn-ghost-white">Accéder à la CVthèque</a>
+                        </div>
                     </div>
+                    <ul class="recruit-list">
+                        <li>{ic('users')}<span>CVthèque de candidats accompagnés et vérifiés</span></li>
+                        <li>{ic('search')}<span>Présélection des profils selon vos critères</span></li>
+                        <li>{ic('briefcase')}<span>Diffusion de vos offres auprès de notre réseau</span></li>
+                    </ul>
                 </div>
-                <ul class="recruit-list">
-                    <li><strong>CVthèque</strong> Des candidats que nous avons accompagnés, dossiers vérifiés.</li>
-                    <li><strong>Présélection</strong> Nous trions les candidatures selon vos critères.</li>
-                    <li><strong>Diffusion</strong> Vos offres relayées auprès de notre réseau.</li>
-                </ul>
             </div>
         </section>
 
         <!-- BLOG -->
-        <section id="blog" class="section">
+        <section id="blog" class="section section-tint">
             <div class="container">
-                <div class="section-head section-head-row">
-                    <div>
-                        <h2 class="section-title">Conseils carrière</h2>
-                        <p class="section-lead">CV, lettre, entretien : nos derniers articles.</p>
-                    </div>
-                    <a href="blog.html" class="link-arrow">Tous les articles →</a>
+                <div class="section-head">
+                    <span class="eyebrow">Blog carrière</span>
+                    <h2 class="section-title">Nos derniers conseils</h2>
+                    <p class="section-lead">Des conseils concrets pour améliorer vos candidatures et réussir vos entretiens.</p>
                 </div>
-                <div class="post-grid">{posts}
+                <div class="grid grid-3">{posts}
                 </div>
+                <div class="center-cta"><a href="blog.html" class="btn btn-outline">Voir tous les articles {ic('arrow')}</a></div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="section section-alt">
-            <div class="container split">
-                <div class="split-head">
+        <section id="faq" class="section">
+            <div class="container narrow">
+                <div class="section-head center">
+                    <span class="eyebrow">FAQ</span>
                     <h2 class="section-title">Questions fréquentes</h2>
                 </div>
                 <div class="faq">{faq}
@@ -673,14 +710,31 @@ def build_index():
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="section">
-            <div class="container contact">
-                <h2 class="contact-title">Écrivez-nous.</h2>
-                <p class="section-lead">Pas de formulaire&nbsp;: une question, un CV à envoyer, on vous répond directement.</p>
-                <div class="contact-lines">
-                    <a href="https://wa.me/{WA_NUM}" target="_blank" rel="noopener"><span>WhatsApp</span>+224 620 02 88 13</a>
-                    <a href="mailto:{EMAIL}"><span>E-mail</span>{EMAIL}</a>
-                    <p><span>Adresse</span>Conakry, Guinée</p>
+        <section id="contact" class="section section-tint">
+            <div class="container contact-grid">
+                <div>
+                    <span class="eyebrow">Contact</span>
+                    <h2 class="section-title">Parlons de votre prochain poste</h2>
+                    <p class="section-lead">Pas de formulaire compliqué : écrivez-nous directement, on vous répond rapidement.</p>
+                    <div class="contact-cards">
+                        <a href="https://wa.me/{WA_NUM}" class="card contact-card" target="_blank" rel="noopener">
+                            <div class="icon-box">{ic('chat')}</div>
+                            <div><h3>WhatsApp</h3><p>+224 620 02 88 13</p></div>
+                        </a>
+                        <a href="mailto:{EMAIL}" class="card contact-card">
+                            <div class="icon-box">{ic('mail')}</div>
+                            <div><h3>E-mail</h3><p>{EMAIL}</p></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-panel">
+                    <h3>Pour un diagnostic gratuit, envoyez-nous :</h3>
+                    <ol>
+                        <li>Votre CV actuel (PDF, Word ou photo)</li>
+                        <li>Le poste ou le secteur que vous visez</li>
+                        <li>L'offre d'emploi, si vous en avez une</li>
+                    </ol>
+                    <a href="{wa("Bonjour Amploi, je vous envoie mon CV pour un diagnostic gratuit.")}" class="btn btn-primary btn-block" target="_blank" rel="noopener">Envoyer mon CV sur WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -699,16 +753,17 @@ def build_blog():
     html += header("", "blog")
     html += f"""
     <main>
-        <section class="page-head">
+        <section class="blog-hero">
             <div class="container">
-                <h1>Conseils carrière</h1>
-                <p class="section-lead">CV, lettre de motivation, LinkedIn, entretien&nbsp;: des articles pratiques, écrits pour le marché de l'emploi guinéen.</p>
+                <span class="eyebrow">Blog carrière</span>
+                <h1>Conseils pour décrocher le bon poste</h1>
+                <p class="section-lead">CV, lettre de motivation, LinkedIn, entretien : des articles pratiques, pensés pour le marché de l'emploi guinéen.</p>
                 <div class="filters" role="group" aria-label="Filtrer par catégorie">{filters}</div>
             </div>
         </section>
-        <section class="section section-tight">
+        <section class="section" style="padding-top:40px">
             <div class="container">
-                <div class="post-grid" id="post-list">{"".join(post_card(p, "") for p in POSTS)}
+                <div class="grid grid-3" id="post-list">{"".join(post_card(p, "") for p in POSTS)}
                 </div>
             </div>
         </section>
@@ -739,42 +794,42 @@ def build_posts():
         <article>
             <header class="article-head">
                 <div class="container narrow">
-                    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> / <a href="../blog.html">Conseils</a> / {p['cat']}</nav>
+                    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> / <a href="../blog.html">Blog</a> / {p['cat']}</nav>
                     <h1>{p['title']}</h1>
-                    <p class="article-lead">{p['excerpt']}</p>
                     <div class="article-meta">
-                        <span class="post-cat">{p['cat']}</span>
+                        <span class="tag">{p['cat']}</span>
                         <time datetime="{p['iso']}">{p['date']}</time>
                         <span>{p['read']} min de lecture</span>
                     </div>
                 </div>
             </header>
             <div class="container narrow">
+                <div class="post-cover article-cover {p['cover']}" aria-hidden="true">{ic(p['icon'], 1.6)}</div>
                 {p['toc']}<div class="prose">{p['body']}</div>
 
                 <div class="share" data-title="{p['title']}">
-                    <span class="share-label">Partager</span>
-                    <a href="#" data-share="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-                    <a href="#" data-share="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="#" data-share="facebook" target="_blank" rel="noopener">Facebook</a>
-                    <button type="button" data-share="copy"><span>Copier le lien</span></button>
+                    <span class="share-label">Partager :</span>
+                    <a href="#" data-share="whatsapp" target="_blank" rel="noopener">{WA_SVG} WhatsApp</a>
+                    <a href="#" data-share="linkedin" target="_blank" rel="noopener">{ic('linkedin')} LinkedIn</a>
+                    <a href="#" data-share="facebook" target="_blank" rel="noopener">{ic('facebook')} Facebook</a>
+                    <button type="button" data-share="copy">{ic('link')} <span>Copier le lien</span></button>
                 </div>
 
                 <aside class="cta-box">
-                    <h2>Un avis sur votre CV&nbsp;?</h2>
-                    <p>Envoyez-le-nous&nbsp;: un consultant Amploi vous fait un diagnostic gratuit sous 24&nbsp;h.</p>
+                    <h2>Envie d'un avis sur votre CV ?</h2>
+                    <p>Envoyez-le-nous : un consultant Amploi vous fait un diagnostic gratuit sous 24 h.</p>
                     <div class="btns">
                         <a href="{wa("Bonjour Amploi, je viens de lire « " + p['title'] + " » et je souhaite un diagnostic gratuit de mon CV.")}" class="btn btn-white" target="_blank" rel="noopener">Diagnostic gratuit</a>
-                        <a href="../index.html#tarifs" class="link-arrow">Voir les tarifs →</a>
+                        <a href="../index.html#tarifs" class="btn btn-ghost-white">Voir les packs</a>
                     </div>
                 </aside>
             </div>
         </article>
 
-        <section class="section section-alt">
+        <section class="section section-tint">
             <div class="container">
-                <h2 class="section-title">À lire aussi</h2>
-                <div class="post-grid">{"".join(post_card(q, "../") for q in related[:3])}
+                <div class="section-head"><h2 class="section-title">À lire aussi</h2></div>
+                <div class="grid grid-3">{"".join(post_card(q, "../") for q in related[:3])}
                 </div>
             </div>
         </section>
