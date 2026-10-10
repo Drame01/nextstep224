@@ -479,6 +479,62 @@ STEPS = [
  ("Postulez avec confiance", "Vous recevez vos documents finalisés et ajustés jusqu'à ce qu'ils vous conviennent."),
 ]
 
+# Avis clients : uniquement de VRAIS avis, avec l'accord du client.
+# Format : dict(nom="Mariama D.", poste="Assistante RH", ville="Conakry", pack="Pro", note=5,
+#               texte="Ce que le client a écrit, sans le réécrire.")
+# Tant que la liste est vide, la section affiche seulement l'invitation à laisser un avis.
+AVIS = [
+]
+
+def avis_html():
+    lien = wa("Bonjour Amploi, je souhaite laisser un avis sur votre accompagnement : ")
+    btn = f'<a href="{lien}" class="btn btn-primary" target="_blank" rel="noopener">{ic("chat")} Laisser un avis</a>'
+    if not AVIS:
+        return f"""
+        <!-- AVIS -->
+        <section id="avis" class="section">
+            <div class="container">
+                <div class="avis-invite reveal">
+                    <div class="avis-stars" aria-hidden="true">{"".join(ic("star") for _ in range(5))}</div>
+                    <h2>Vous avez été accompagné par Amploi&nbsp;?</h2>
+                    <p>Votre avis aide d'autres candidats à se lancer. Racontez-nous en quelques mots comment s'est passé votre accompagnement.</p>
+                    {btn}
+                </div>
+            </div>
+        </section>
+"""
+    cards = ""
+    for a in AVIS:
+        n = max(1, min(5, int(a.get("note", 5))))
+        stars = "".join(f'<span class="{"on" if i < n else "off"}">{ic("star")}</span>' for i in range(5))
+        initiales = "".join(w[0] for w in a["nom"].replace(".", "").split()[:2]).upper()
+        meta = " · ".join(x for x in (a.get("poste"), a.get("ville")) if x)
+        pack = f'<span class="tag">Pack {a["pack"]}</span>' if a.get("pack") else ""
+        cards += f"""
+                <figure class="card avis-card reveal">
+                    <div class="avis-note" aria-label="{n} étoiles sur 5">{stars}</div>
+                    <blockquote>«&nbsp;{a['texte']}&nbsp;»</blockquote>
+                    <figcaption>
+                        <span class="avis-avatar" aria-hidden="true">{initiales}</span>
+                        <span><strong>{a['nom']}</strong><small>{meta}</small></span>
+                        {pack}
+                    </figcaption>
+                </figure>"""
+    return f"""
+        <!-- AVIS -->
+        <section id="avis" class="section">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow">Avis clients</span>
+                    <h2 class="section-title">Ils ont fait confiance à Amploi</h2>
+                </div>
+                <div class="grid grid-3">{cards}
+                </div>
+                <div class="center-cta">{btn.replace("btn-primary", "btn-outline")}</div>
+            </div>
+        </section>
+"""
+
 FAQ = [
  ("Comment fonctionne le diagnostic gratuit de mon CV ?", "Envoyez-nous votre CV actuel sur WhatsApp ou par e-mail. Un consultant l'analyse sous 24 h et vous fait un retour clair sur les principaux points à améliorer. Ce diagnostic est gratuit et sans engagement."),
  ("Quels sont vos délais de livraison ?", "Comptez 72 h pour le pack Essentiel et 48 h pour les packs Pro et Premium, à partir de la validation de votre commande et de la réception de toutes vos informations."),
@@ -588,6 +644,7 @@ def build_index():
             </div>
         </section>
 
+{avis_html()}
         <!-- TARIFS -->
         <section id="tarifs" class="section">
             <div class="container">
