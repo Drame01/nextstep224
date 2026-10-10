@@ -19,6 +19,12 @@ python3 generateur/build.py
 
 Tarifs fixés : Essentiel 39 000 GNF, Pro 79 000 GNF, Premium 159 000 GNF. Contact WhatsApp +224 620 02 88 13, e-mail droum09@gmail.com.
 
+## Avis clients
+
+Liste `AVIS` dans `generateur/build.py`. N'y mettre que de **vrais** avis transmis par le propriétaire du site,
+avec l'accord du client, sans réécrire le texte. Ne jamais inventer d'avis. Liste vide = la section affiche
+seulement l'invitation « Laisser un avis » (lien WhatsApp).
+
 ## Ajouter l'article de la semaine
 
 1. Lister les titres existants pour ne pas répéter un sujet : `grep -h 'title=' generateur/*.py`
